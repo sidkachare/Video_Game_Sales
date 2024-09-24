@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ 
+<div class="login">
+	<h1>VG_Sales Regression</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+ 
+   <form action="{{ url_for('predict')}}"method="post">
+    	
+        <input type="text" name="Platform" placeholder="Platform" required="required" />
+         <!-- 
+          <select name="Platform" required="required">
+            <option value="" selected disabled hidden>Select Platform</option>
+            <option value="Wii">Wii</option>
+            <option value="PS4">PS4</option>
+            <option value="NES">NES</option>
+            <option value="GB">GB</option>
+            <option value="DS">DS</option>
+            <option value="X360">X360</option>
+            <option value="PS3">PS3</option>
+            <option value="PS2">PS2</option>
+            <option value="SNES">SNES</option>
+            <option value="GBA">GBA</option>
+            <option value="3DS">3DS</option>
+            <option value="N64">N64</option>
+            <option value="PS"></option>
+            <option value="XB"></option> -->
+        <input type="text" name="Year" placeholder="Year" required="required" />
+        <input type="text" name="Genre" placeholder="Genre" required="required" />
+		<input type="text" name="Publisher" placeholder="Publisher" required="required" />
+		<input type="text" name="NA_Sales" placeholder="NA_Sales" required="required" />
+		<input type="text" name="EU_Sales" placeholder="EU_Sales" required="required" />
+		<input type="text" name="JP_Sales" placeholder="JP_Sales" required="required" />
+		<input type="text" name="Other_Sales" placeholder="Other_Sales" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+  
+
+   <br>
+   <br>
+   <div class="prediction">
+       {{ prediction_text }}
+   </div>
+
+ </div>
+
+
+</body>
+</html>
